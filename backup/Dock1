@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+RUN apt update && apt install npm -y &&  npm install --global yarn -y
+RUN git clone https://github.com/khaledosman/angular-realworld-example-app
+RUN cd angular-realworld-example-app
+RUN yarn install && npm install -g @angular/cli
+COPY ./environment.ts angular-realworl-example-app/src/environments/environment.ts
+EXPOSE 42000
+
