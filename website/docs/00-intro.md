@@ -40,7 +40,7 @@ cp packages/server/.env-example packages/server/.env
 yarn start
 ```
 
-Після цього, можете проглянути OpenAPI документацію на [http://localhost:3000/api/openapi][3]
+Після цього, можете проглянути OpenAPI документацію на [http://0.0.0.0:3000/api/openapi][3]
 
 ## Запуск веб-сервера у продуктовому режимі
 
@@ -77,6 +77,6 @@ SET FOREIGN_KEY_CHECKS=1;
 
 [1]: https://github.com/ditsmod/realworld
 [2]: https://github.com/gothinkster/realworld
-[3]: http://localhost:3000/api/openapi
+[3]: http://0.0.0.0:3000/api/openapi
 [4]: https://github.com/gothinkster/realworld/blob/main/api/Conduit.postman_collection.json
 [5]: https://github.com/ditsmod/realworld/blob/main/packages/server/sql/dump/info.sql

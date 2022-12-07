@@ -22,7 +22,7 @@ import { UtilModule } from '@service/util/util.module';
 @RootModule({
   httpModule: http,
   serverOptions: {},
-  listenOptions: { port: 3000, host: 'localhost' },
+  listenOptions: { port: 3000, host: '0.0.0.0' },
   path: 'api',
   imports: [
     { path: '', module: UsersModule },

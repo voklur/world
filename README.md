@@ -43,7 +43,7 @@ And fill this file.
 yarn start
 ```
 
-After that, see OpenAPI docs on [http://localhost:3000/api/openapi](http://localhost:3000/api/openapi)
+After that, see OpenAPI docs on [http://0.0.0.0:3000/api/openapi](http://0.0.0.0:3000/api/openapi)
 
 ## Start the web server in production mode
 
@@ -95,7 +95,7 @@ cd packages
 ng new my-angular-application --routing
 ```
 
-For some reason, a bug of yarn appears after this command. If you open [http://localhost:3000/api/openapi](http://localhost:3000/api/openapi) you will see this bug. To avoid it, it is necessary delete `yarn.lock` and rebootstrap the monorepo:
+For some reason, a bug of yarn appears after this command. If you open [http://0.0.0.0:3000/api/openapi](http://0.0.0.0:3000/api/openapi) you will see this bug. To avoid it, it is necessary delete `yarn.lock` and rebootstrap the monorepo:
 
 ```bash
 yarn boot
