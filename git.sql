@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: real_world
+-- Host: 0.0.0.0    Database: real_world
 -- ------------------------------------------------------
 -- Server version	8.0.27
 
@@ -37,7 +37,7 @@ CREATE TABLE `curr_articles` (
   UNIQUE KEY `uniq_cur_articles_1_idx` (`slug`),
   KEY `fk_cur_articles_1_idx` (`userId`),
   CONSTRAINT `fk_cur_articles_1` FOREIGN KEY (`userId`) REFERENCES `curr_users` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +57,7 @@ CREATE TABLE `curr_comments` (
   PRIMARY KEY (`commentId`),
   KEY `fk_cur_comments_1_idx` (`userId`),
   CONSTRAINT `fk_cur_comments_1` FOREIGN KEY (`userId`) REFERENCES `curr_users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `curr_users` (
   PRIMARY KEY (`userId`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Prefix "cur" mean "current". So this table includes current state. This is not dictionary.';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Prefix "cur" mean "current". So this table includes current state. This is not dictionary.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `dict_tags` (
   PRIMARY KEY (`tagId`),
   UNIQUE KEY `tag_name_UNIQUE` (`tagName`),
   KEY `fk_dict_tags_1_idx` (`creatorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +109,7 @@ CREATE TABLE `map_articles_tags` (
   `articleId` int unsigned NOT NULL,
   `tagId` int unsigned NOT NULL,
   UNIQUE KEY `uniq_map_articles_tags_1` (`articleId`,`tagId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `map_favorites` (
   KEY `fk_map_favorites_2_idx` (`userId`),
   CONSTRAINT `fk_map_favorites_1` FOREIGN KEY (`userId`) REFERENCES `curr_users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_map_favorites_2` FOREIGN KEY (`articleId`) REFERENCES `curr_articles` (`articleId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +145,7 @@ CREATE TABLE `map_followers` (
   KEY `fk_map_followers_2_idx` (`followerId`),
   CONSTRAINT `fk_map_followers_1` FOREIGN KEY (`userId`) REFERENCES `curr_users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_map_followers_2` FOREIGN KEY (`followerId`) REFERENCES `curr_users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
