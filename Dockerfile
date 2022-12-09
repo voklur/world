@@ -6,6 +6,6 @@ RUN yarn install
 RUN yarn boot
 RUN yarn build
 ###RUN yarn start
-###ENTRYPOINT yarn start
+ENTRYPOINT yarn start
 
 EXPOSE 3000
