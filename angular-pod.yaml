@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ang-app
+  labels:
+    app: ang-app
+spec:
+  selector:
+    matchLabels:
+      app: ang-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ang-app
+    spec:
+      containers:
+      - name: ang-app
+<<<<<<< HEAD
+        image: voklur/node:V2
+        ports: 
+        - name: ang-app-port
+          containerPort: 4200
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ang-app
+spec:
+  ports:
+    - port: 4200
+      targetPort: ang-app-port
+      protocol: TCP
+  selector:
+    app: ang-app
+  type: LoadBalancer
+=======
+        image: voklur/node
+        ports: 
+        - name: ang-app-port
+          containerPort: 4200
+>>>>>>> 7e76cba (k8s)

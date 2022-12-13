@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-back
+  labels:
+    app: nginx-back
+spec:
+  selector:
+    matchLabels:
+      app: nginx-back
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-back
+    spec:
+      containers:
+      - name: nginx-back
+        image: voklur/backendnode
+        ports: 
+        - name: nginx-back-port
+          containerPort: 3000
+
