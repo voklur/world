@@ -1,0 +1,31 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kubernetes CLI (kubectl)
+        uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{secrets.KUBE_CONFIG}}
+      - run: kubectl create -f ingress.yaml
+      - name: Install MySQL requirements
+        run: |
+          kubectl create -f secret.yaml
+          kubectl create -f mysql-storage.yaml
+          kubectl create -f mysql-pod.yaml
+          kubectl create -f mysql-svc.yaml
+      - name: NodeJS install
+        run: |
+          kubectl create -f nodejs-pod.yaml
+          kubectl create -f nodejs-svc.yaml
+          kubectl create -f angular-pod.yaml
+          kubectl create -f angular-svc.yaml
+          ###      - name: Check out repository code
+          ###uses: actions/checkout@v3
+          ###- run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          ###- run: echo "🖥️ The workflow is now ready to test your code on the runner."
+          ###- name: List files in the repository
+          kubectl get all
+        ###- run: echo "🍏 This job's status is ${{ job.status }}."
+

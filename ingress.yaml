@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: vprodb
+            port:
+              number: 3306
+      - pathType: Prefix
+        path: "/"  
+        backend:  
+          service:
+            name: nginx-back
+            port:
+              number: 3000
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: ang-app
+            port:
+              number: 4200

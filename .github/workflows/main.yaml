@@ -1,0 +1,12 @@
+name: Kubectl Action
+
+on: [push]
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: tale/kubectl-action@v1
+      with:
+        base64-kube-config: YXBpVmVyc2lvbjogdjEKa2luZDogQ29uZmlnCnByZWZlcmVuY2VzOiB7fQo=
+    - run: kubectl get pods
